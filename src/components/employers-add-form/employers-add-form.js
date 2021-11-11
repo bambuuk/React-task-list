@@ -12,21 +12,29 @@ class EmployersAddForm extends Component {
 
     onValueChange = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     submit = (e) => {
         e.preventDefault();
-        this.props.addItem(this.state);
-        this.setState({
-            name: '',
-            salary: ''
-        });
+        if (this.state.name.length > 3 && this.state.salary !== '') {
+            this.props.addItem(this.state);
+            this.setState({
+                name: '',
+                salary: ''
+            });
+        } else if (this.state.name.length > 3 && this.state.salary === '') {
+            alert('Введите, пожалуйста, зароботную плату сотрудника');
+        } else if (this.state.name.length < 3 && this.state.salary !== '') {
+            alert('Введите, пожалуйста, имя сотрудника (больше 3 символов)');
+        } else {
+            alert('Введите, пожалуйста, имя сотрудника (больше 3 символов) и его з/п');
+        }
     }
 
-    render () {
-        const {name, salary} = this.state;
+    render() {
+        const { name, salary } = this.state;
 
         return (
             <div className="app-add-form">
@@ -38,17 +46,17 @@ class EmployersAddForm extends Component {
                         className="form-control new-post-label"
                         placeholder="Как его зовут?"
                         name='name'
-                        value={name} 
-                        onChange={this.onValueChange}/>
+                        value={name}
+                        onChange={this.onValueChange} />
                     <input type="number"
                         className="form-control new-post-label"
                         placeholder="З/П в $?"
                         name='salary'
-                        value={salary} 
-                        onChange={this.onValueChange}/>
-    
+                        value={salary}
+                        onChange={this.onValueChange} />
+
                     <button type="submit"
-                            className="btn btn-outline-light">Добавить</button>
+                        className="btn btn-outline-light">Добавить</button>
                 </form>
             </div>
         );
