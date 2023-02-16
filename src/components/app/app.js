@@ -12,10 +12,10 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'David Livak', salary: 800, increase: true, rise: true, id: 1},
-                {name: 'Sergey Sayenko', salary: 1001, increase: false, rise: false, id: 2},
-                {name: 'Kirill Tsonev', salary: 900, increase: false, rise: false, id: 3},
-                {name: 'Ivan Korobka', salary: 3701, increase: false, rise: false, id: 4}
+                {name: 'Peter', salary: 1800, increase: true, rise: true, id: 1},
+                {name: 'James', salary: 1500, increase: false, rise: false, id: 2},
+                {name: 'Ann', salary: 2000, increase: false, rise: false, id: 3},
+                {name: 'Alexsandra', salary: 1200, increase: false, rise: false, id: 4}
             ],
             term: '',
             filter: 'all'
@@ -25,7 +25,6 @@ class App extends Component {
     // удаление ел списка сотрудников
     deleteItem = (id) => {
         this.setState(({data}) => {
-            // const index = data.findIndex(elem => elem.id === id);
             return {
                 data: data.filter(item => item.id !== id)
             }

@@ -1,4 +1,4 @@
-Ссылка на github pages - https://bambuuk.github.io/React-task-list/
+SPA React app employee list for accounting staff salary, made with using React (class component), SASS (CRUD).
 
 # Getting Started with Create React App
 
